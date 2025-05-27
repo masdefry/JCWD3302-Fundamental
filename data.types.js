@@ -36,14 +36,38 @@ let comment = 'Mantap nih gan!';
 console.log(comment.slice(3, 5)); // ta
 
 // - toUpperCase & toLowerCase
-let title = 'HeLlO wOrlD!'
-console.log(title.toUpperCase())
-console.log(title.toLowerCase())
+let title = 'HeLlO wOrlD!';
+console.log(title.toUpperCase());
+console.log(title.toLowerCase());
 
-// - Substring 
+// - Substring
 let desc = 'Hello, iam Defryan';
 console.log(desc.substring(5, 0));
 
 // - CharAt
 console.log(desc.charAt(4));
 
+// 2. Number Method
+
+// - ToString
+let poin = 100;
+console.log(typeof poin.toString());
+
+// Challenge. Ubah 3 karakter akhir dari phone number menjadi ***
+//            Input : 6281214173000
+//            Output: '6281214173***'
+
+let input = 6281214173000; // 13-3 = 10
+input = input.toString();
+console.log('Hidden Phone Number:' + input.slice(0, -3) + '***');
+console.log(`Hidden Phone Number: ${input.slice(0, -3)} ***`); // String template literal
+
+// 5. Date
+let date = new Date();
+
+console.log(date.getMonth() + 1); // 4
+console.log(date.getFullYear()); // 2025
+console.log(date.getDate()); // 27
+console.log(date.getHours());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
