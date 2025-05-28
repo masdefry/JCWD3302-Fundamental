@@ -1,63 +1,157 @@
 Hello, Full Stack Students✌️!
 
-✔️Variabel
+✔️Conditional Statement
 
-Variabel adalah tempat untuk menyimpan data agar bisa digunakan secara berulang dan diproses didalam program.
+Conditional statement digunakan untuk menjalankan kode tertentu berdasarkan suatu kondisi.
 
-    🔹Deklarasi Variable
-        var variableName;
-        variableName = value;
+    🔹Macam-Macam Struktur Conditional
 
-        ___ or ___
+        ▪️if
+            Syntax:
+                if(condition){
+                    task;
+                }
 
-        var variableName = value;
+        ▪️if-else
+            Syntax:
+                if(condition){
+                    task;
+                }else{
+                    task;
+                }
 
-    🔹Aturan Penamaan Variable
-        ▪️Harus diawali dengan huruf, dan beberapa special characters seperti `$` dan `_`
-        ▪️Bersifat case sensitif
-        ▪️Harus deskriptif dan jelas
+        ▪️if-else if-else
+            Syntax:
+                if(condition){
+                    task;
+                }else if(condition){
+                    task;
+                }else if(condition){
+                    task;
+                }else{
+                    task;
+                }
 
-    🔹Variable Syntax Declaration
-        ▪️var
-            ✅ Valuenya bisa diubah
-            ✅ Pembuatan variable dengan nama yg sama (duplicate) diperbolehkan
-            ❌ Tidak memiliki aturan scope
+✔️Looping
 
-        ▪️let
-            ✅ Valuenya bisa diubah
-            ❌ Pembuatan variable dengan nama yg sama (duplicate) tidak diperbolehkan
-            ✅ Memiliki aturan scope
+Looping digunakan untuk menjalankan tugas secara berulang-ulang sampai suatu kondisi terpenuhi.
+Beberapa parameter yang perlu diperhatikan pada looping:
 
-        ▪️const
-            ❌ Valuenya tidak bisa diubah
-            ❌ Pembuatan variable dengan nama yg sama (duplicate) tidak diperbolehkan
-            ✅ Memiliki aturan scope
+▪️Inisialisasi : Berfungsi untuk menetapkan nilai awal variabel yang akan dipantau didalam looping
 
-✔️Data Types
+▪️Condition : Berfungsi untuk menentukan apakah looping akan terus dijalankan atau dihentikan.
 
-Data types merupakan jenis data yang dapat disimpan dalam suatu varible sehingga dapat diolah oleh sebuah program.
-Tipe data di Javascript terbagi menjadi 2:
+▪️ExitWay : Berfungsi untuk menghindari terjadinya infinite loop. ExitWay bertugas untuk merubah variabel `inisialisasi` hingga akhirnya dapat merubah condition.
 
-    🔹Tipe Data Primitive
-        Tipe data basic yang umum digunakan di banyak bahasa pemrograman:
+    🔹Jenis-Jenis Looping
 
-        ▪️Integer    : Tipe data yang berisikan kumpulan angka
-        ▪️String     : Tipe data yang nilainya diapit oleh petik ("", '', atau ``)
-        ▪️Boolean    : Tipe data yang memiliki 2 nilai, yaitu true dan false
-        ▪️Undefined
-        ▪️Null
+        ▪️While
+            Pengecekan kondisi dilakukan terlebih dahulu sebelum meng-eksekusi block of code.
+            Syntax:
 
-    🔹Tipe Data Non-Primitive
-        Tipe data yang lebih kompleks dan dibentuk dari tipe data primitif.
+                initialValue;
+                while(condition){
+                    blockOfCode;
+                    exitWay;
+                }
 
-        ▪️Array
-        ▪️Object
+            Example:
 
-✔️Comparison Operator
+                let start = 1;
 
-Comparison operator (operator perbandingan) adalah operator yang digunakan untuk membandingkan dua nilai. Hasil dari operasi ini selalu berupa boolean: true (benar) atau false (salah). Comparison operator yang ada di Javascript:
+                while (start <= 10) {
+                    console.log('Purwadhika');
+                    start++;
+                }
 
-    ▪️>, >=, <, <=, !=, ==, ===
+        ▪️Do-While
+            Pengecekan kondisi dilakukan setelah menjalankan block of code.
+            Syntax:
 
-    📒Note:
-        Perbedaan antara == dan === yaitu apabila == hanya membandingkan nilai saja, sedangkan === membandingkan nilai dan tipe data.
+                initialValue;
+                do{
+                    blockOfCode;
+                    exitWay;
+                }while(condition)
+
+            Example:
+
+                let startLoop = 1;
+                do {
+                    console.log('Purwadhika');
+                    startLoop++;
+                } while (startLoop <= 10);
+
+        ▪️For-Loop
+            Mirip seperti `do-while`, namun dengan syntax yg lebih ringkas dan lebih mudah dibaca.
+            Syntax:
+
+                for(initialValue; condition; exitWay){
+                    blockOfCode;
+                }
+
+            Example:
+
+                for (let i = 1; i <= 10; i++) {
+                    console.log('Purwadhika');
+                }
+
+✔️Logical Opertator
+
+Digunakan untuk menggabungkan lebih dari 1 kondisi dan menghasilkan nilai akhir berupa boolean (true atau false). Berikut logical operator yang ada di Javascript:
+
+        🔹|| (OR)
+            ▪️Salah satu kondisi bernilai true, maka hasil akhir akan bernilai true.
+            ▪️Jika ingin hasil akhir bernilai false, maka seluruh kondisi harus bernilai false.
+
+                    let punyaSIM = false;
+                    let punyaSuratIzin = true;
+
+                    if (punyaSIM || punyaSuratIzin) {
+                        console.log('Boleh mengemudi');
+                    }
+
+        🔹&& (AND)
+            ▪️Salah satu kondisi bernilai false, maka hasil akhir akan bernilai false.
+            ▪️Jika ingin hasil akhir bernilai true, maka seluruh kondisi harus bernilai true.
+
+                    let usia = 17;
+                    let punyaKTP = false;
+
+                    if (usia >= 17 && punyaKTP) {
+                        console.log('Tidak boleh ikut pemilu');
+                    }
+
+        🔹! (NOT)
+            ▪️Negasi atau membalikan nilai boolean.
+
+                    let login = false;
+
+                    if (!login) {
+                        console.log("Silakan login terlebih dahulu");
+                    }
+
+✔️Truthy & Falsy
+
+Dalam JavaScript, `truthy` dan `falsy` adalah istilah yang digunakan untuk menggambarkan bagaimana nilai non-boolean dikonversi menjadi nilai boolean dalam konteks seperti conditional statement (if), logical operator, dll. Secara sederhana, truthy-falsy memiliki kegunaan untuk mempersingkat penulisan syntax.
+
+Kita bisa ambil contoh dari code berikut:
+
+        let nama='';
+
+        if(nama === ''){
+            console.log('Nama belum diisi')
+        }else{
+            console.log('Nama telah diisi')
+        }
+
+Dari contoh code diatas, pengkondisian didalam if agak terlalu panjang dalam penulisannya. Sehingga bisa
+kita persingkat menjadi seperti ini:
+
+        let nama='';
+
+        if(!nama){
+            console.log('Nama belum diisi')
+        }else{
+            console.log('Nama telah diisi')
+        }
