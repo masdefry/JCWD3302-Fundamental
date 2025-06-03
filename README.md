@@ -1,157 +1,130 @@
 Hello, Full Stack Students✌️!
 
-✔️Conditional Statement
+✔️Array
 
-Conditional statement digunakan untuk menjalankan kode tertentu berdasarkan suatu kondisi.
+Array adalah struktur data yang digunakan untuk menyimpan sekumpulan data (nilai) dalam satu variable.
+Tiap nilai yang disimpan didalam array disebut dengan `element` atau `item`. Dan tiap-tiap `element`
+atau `item` didalam array dapat diakses dengan menggunakan index penomoran yang dimulai dari 0.
 
-    🔹Macam-Macam Struktur Conditional
+💡Case:
+Kita memiliki list data student. Tanpa menggunakan array, code untuk menyimpan list data student tersebut menjadi
+seperti ini:
 
-        ▪️if
-            Syntax:
-                if(condition){
-                    task;
-                }
+    let student1 = 'Bobby';
+    let student2 = 'Immanuel';
+    let student3 = 'Aviawan';
 
-        ▪️if-else
-            Syntax:
-                if(condition){
-                    task;
-                }else{
-                    task;
-                }
+Dengan menggunakan array, maka kita hanya perlu membuat 1 variable yang berisikan 3 list students didalamnya:
 
-        ▪️if-else if-else
-            Syntax:
-                if(condition){
-                    task;
-                }else if(condition){
-                    task;
-                }else if(condition){
-                    task;
-                }else{
-                    task;
-                }
+    let students = ['Bobby', 'Immanuel', 'Aviawan'];
 
-✔️Looping
+    🔹Array Declaration
 
-Looping digunakan untuk menjalankan tugas secara berulang-ulang sampai suatu kondisi terpenuhi.
-Beberapa parameter yang perlu diperhatikan pada looping:
+        let fruits = ['Apple', 'Mango', 'Orange'];
 
-▪️Inisialisasi : Berfungsi untuk menetapkan nilai awal variabel yang akan dipantau didalam looping
+    🔹Accessing Array
 
-▪️Condition : Berfungsi untuk menentukan apakah looping akan terus dijalankan atau dihentikan.
+        fruits[0] // Apple
+        fruits[1] // Mango
+        fruits[2] // Orange
 
-▪️ExitWay : Berfungsi untuk menghindari terjadinya infinite loop. ExitWay bertugas untuk merubah variabel `inisialisasi` hingga akhirnya dapat merubah condition.
+    🔹Update Item in Array
 
-    🔹Jenis-Jenis Looping
+        fruits[0] = 'Pineaple' // Apple ➡️ Pineaple
 
-        ▪️While
-            Pengecekan kondisi dilakukan terlebih dahulu sebelum meng-eksekusi block of code.
-            Syntax:
+    🔹Delete Item in Array
 
-                initialValue;
-                while(condition){
-                    blockOfCode;
-                    exitWay;
-                }
+        delete fruits[1]
 
-            Example:
+✔️Destructuring Array
 
-                let start = 1;
+Fitur yang memungkinkan untuk mengambil item dari dalam array dan menyimpannya ke dalam masing-masing variable.
+Bisa dilihat dari contoh berikut:
 
-                while (start <= 10) {
-                    console.log('Purwadhika');
-                    start++;
-                }
+    const fruits = ['Apple', 'Mango', 'Orange']
+    const fruit1 = fruits[0];
+    const fruit2 = fruits[1];
+    const fruit3 = fruits[2];
 
-        ▪️Do-While
-            Pengecekan kondisi dilakukan setelah menjalankan block of code.
-            Syntax:
+Alih-alih seperti cara diatas, kita bisa persingkat dengan menggunakan destructure array sebagai berikut:
 
-                initialValue;
-                do{
-                    blockOfCode;
-                    exitWay;
-                }while(condition)
+    ✅ Destructure semua item
 
-            Example:
+    const fruits = ['Apple', 'Mango', 'Orange']
+    const [fruit1, fruit2, fruit3] = fruits;
 
-                let startLoop = 1;
-                do {
-                    console.log('Purwadhika');
-                    startLoop++;
-                } while (startLoop <= 10);
+    console.log(fruit1) // Apple
+    console.log(fruit2) // Mango
+    console.log(fruit3) // Orange
 
-        ▪️For-Loop
-            Mirip seperti `do-while`, namun dengan syntax yg lebih ringkas dan lebih mudah dibaca.
-            Syntax:
+    ___ or ___
 
-                for(initialValue; condition; exitWay){
-                    blockOfCode;
-                }
+    ✅ Destructure item `Apple` dan `Mango`
 
-            Example:
+    const fruits = ['Apple', 'Mango', 'Orange']
+    const [fruit1, fruit2] = fruits;
 
-                for (let i = 1; i <= 10; i++) {
-                    console.log('Purwadhika');
-                }
+    console.log(fruit1) // Apple
+    console.log(fruit2) // Mango
 
-✔️Logical Opertator
+    ___ or ____
 
-Digunakan untuk menggabungkan lebih dari 1 kondisi dan menghasilkan nilai akhir berupa boolean (true atau false). Berikut logical operator yang ada di Javascript:
+    ✅ Destructure item `Orange` saja
 
-        🔹|| (OR)
-            ▪️Salah satu kondisi bernilai true, maka hasil akhir akan bernilai true.
-            ▪️Jika ingin hasil akhir bernilai false, maka seluruh kondisi harus bernilai false.
+    const fruits = ['Apple', 'Mango', 'Orange']
+    const [, , fruit] = fruits;
 
-                    let punyaSIM = false;
-                    let punyaSuratIzin = true;
+    console.log(fruit) // Orange
 
-                    if (punyaSIM || punyaSuratIzin) {
-                        console.log('Boleh mengemudi');
-                    }
+Dengan destructure array, maka:
 
-        🔹&& (AND)
-            ▪️Salah satu kondisi bernilai false, maka hasil akhir akan bernilai false.
-            ▪️Jika ingin hasil akhir bernilai true, maka seluruh kondisi harus bernilai true.
+▪️Code jadi lebih ringkas dan mudah dibaca.
 
-                    let usia = 17;
-                    let punyaKTP = false;
+▪️Bisa digunakan untuk mengambil sebagian nilai saja.
 
-                    if (usia >= 17 && punyaKTP) {
-                        console.log('Tidak boleh ikut pemilu');
-                    }
+✔️Function
 
-        🔹! (NOT)
-            ▪️Negasi atau membalikan nilai boolean.
+Function merupakan salah 1 fitur didalam bahasa pemrograman yang berfungsi untuk memuat
+block of code kita sehingga dapat digunakan berulang kali. Function dapat mempermudah pemrograman, karena:
 
-                    let login = false;
+▪️Code jadi lebih rapi dan modular
 
-                    if (!login) {
-                        console.log("Silakan login terlebih dahulu");
-                    }
+▪️Menghindari penulisan code yang sama berulang-ulang
 
-✔️Truthy & Falsy
+▪️Mempermudah debugging
 
-Dalam JavaScript, `truthy` dan `falsy` adalah istilah yang digunakan untuk menggambarkan bagaimana nilai non-boolean dikonversi menjadi nilai boolean dalam konteks seperti conditional statement (if), logical operator, dll. Secara sederhana, truthy-falsy memiliki kegunaan untuk mempersingkat penulisan syntax.
+    🔹Function Types
 
-Kita bisa ambil contoh dari code berikut:
+        ▪️Declarative Function
 
-        let nama='';
+            function functionName(){
+                blockOfCode;
+            };
 
-        if(nama === ''){
-            console.log('Nama belum diisi')
-        }else{
-            console.log('Nama telah diisi')
-        }
+            functionName()
 
-Dari contoh code diatas, pengkondisian didalam if agak terlalu panjang dalam penulisannya. Sehingga bisa
-kita persingkat menjadi seperti ini:
+        ▪️Function Expression
 
-        let nama='';
+            const functionName = functionName(){
+                blockOfCode;
+            };
 
-        if(!nama){
-            console.log('Nama belum diisi')
-        }else{
-            console.log('Nama telah diisi')
-        }
+            functionName()
+
+        ▪️Arrow Function
+
+            const functionName = () => {
+                blockOfCode;
+            };
+
+            functionName()
+
+    🔹Function with Parameters & Function with Default Parameters
+
+        function Greeting(name, hobby){
+            return `Hello, Iam ${name} and my hobby is ${hobby}`;
+        };
+
+        function Greeting(name = 'Student', hobby = 'Coding'){
+            return `Hello, Iam ${name} and my hobby is ${hobby}`;
+        };
