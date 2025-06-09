@@ -238,10 +238,8 @@ class NewUser {
   #password = '';
   #phoneNumber = '';
 
-  constructor(_username, _password, _phoneNumber) {
+  constructor(_username) {
     this.username = _username;
-    this.#password = _password;
-    this.#phoneNumber = _phoneNumber;
   }
 
   get getPhoneNumber() {
@@ -252,8 +250,14 @@ class NewUser {
     if (_email.includes('@')) {
       return (this.#email = _email);
     } else {
-      return 'Email invalid';
+      return (this.#email = 'Email Invalid');
     }
+  }
+
+  set setPasswordAndPhoneNumber({ _password, _phoneNumber }) {
+    // Validasi
+    this.#phoneNumber = _phoneNumber;
+    this.#password = _password;
   }
 
   get getAllDataExceptUsername() {
@@ -265,7 +269,11 @@ class NewUser {
   }
 }
 
-const user01 = new NewUser('defryan', 'abc12345', '081233445599');
-user01.setEmail = 'def@gmail.com';
+const user01 = new NewUser('defryan');
+user01.setEmail = 'defgmail.com';
+user01.setPasswordAndPhoneNumber = {
+  _password: 'abc12345',
+  _phoneNumber: '081234121213',
+};
 console.log(user01.getAllDataExceptUsername);
 console.log(user01);
