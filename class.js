@@ -182,5 +182,90 @@ class NewClothes extends BaseProduct {
 }
 
 // DRY (Dont Repeat Yourself)
-const clothe1 = new NewClothes('Kaos', 100000, 1000, 'Bebas', 10, 'Fit', 'Cotton', 'Black', 'L');
-console.log(clothe1)
+const clothe1 = new NewClothes(
+  'Kaos',
+  100000,
+  1000,
+  'Bebas',
+  10,
+  'Fit',
+  'Cotton',
+  'Black',
+  'L'
+);
+console.log(clothe1);
+
+// > METHOD
+// Function yang disimpan kedalam object/class
+
+class User {
+  username = '';
+  email = '';
+  password = '';
+  phoneNumber = '';
+
+  constructor(_username, _email, _password, _phoneNumber) {
+    this.username = _username;
+    this.email = _email;
+    this.password = _password;
+    this.phoneNumber = _phoneNumber;
+  }
+
+  showData() {
+    console.log(`${this.username}: ${this.email}`);
+  }
+
+  showPhoneNumber = () => {
+    console.log(`${this.phoneNumber}`);
+  };
+
+  showEmailOnly = function () {
+    console.log(`${this.email}`);
+  };
+}
+
+const user1 = new User('defryan', 'def@gmail.com', 'abc12345', '081233334444');
+user1.showData();
+user1.showPhoneNumber();
+user1.showEmailOnly();
+
+// > ENCAPSULATION
+// Membungkus data dan method kedalam sebuah class
+
+class NewUser {
+  username = '';
+  #email = '';
+  #password = '';
+  #phoneNumber = '';
+
+  constructor(_username, _password, _phoneNumber) {
+    this.username = _username;
+    this.#password = _password;
+    this.#phoneNumber = _phoneNumber;
+  }
+
+  get getPhoneNumber() {
+    return this.#phoneNumber?.slice(0, -3) + '***';
+  }
+
+  set setEmail(_email) {
+    if (_email.includes('@')) {
+      return (this.#email = _email);
+    } else {
+      return 'Email invalid';
+    }
+  }
+
+  get getAllDataExceptUsername() {
+    return {
+      phoneNumber: this.#phoneNumber,
+      email: this.#email,
+      password: this.#password,
+    };
+  }
+}
+
+const user01 = new NewUser('defryan', 'abc12345', '081233445599');
+user01.setEmail = 'def@gmail.com';
+console.log(user01.getAllDataExceptUsername);
+console.log(user01);
