@@ -1,0 +1,1 @@
+import { IUser, IProduct } from './outside.module';
