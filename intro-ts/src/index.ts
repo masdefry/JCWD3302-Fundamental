@@ -133,7 +133,7 @@ const Hello = (username: string) => {
 
 Hello('ryandefryan');
 
-interface IGreetingUserParams{
+interface I01Params{
   username: string, 
   email: string, 
   password: string
@@ -152,5 +152,25 @@ function GreetingUser({username, email, password}: IGreetingUserParams){
 GreetingUser({
   email: '',
   username: '', 
-  password: ''
+  password: '',
 })
+
+
+
+function Welcome(): void{
+  console.log('Hello')
+}
+
+function Sum(num1: number, num2: number): number{
+  return num1 + num2;
+}
+
+interface IGreetingUser{
+  username: string, 
+  password: string, 
+  callbacks: () => number
+}
+
+function GreetingUser01({username, password, callbacks}: IGreetingUser){
+
+}
